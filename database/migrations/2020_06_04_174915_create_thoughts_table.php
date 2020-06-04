@@ -15,6 +15,8 @@ class CreateThoughtsTable extends Migration
     {
         Schema::create('thoughts', function (Blueprint $table) {
             $table->id();
+            $table->text("content");
+            $table->string("author");
             $table->timestamps();
         });
     }
