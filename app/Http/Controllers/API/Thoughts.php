@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Thought;
 
 class Thoughts extends Controller
 {
@@ -14,7 +15,8 @@ class Thoughts extends Controller
      */
     public function index()
     {
-        //
+        // get all thoughts
+        return Thought::all();
     }
 
     /**
