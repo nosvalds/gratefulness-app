@@ -25,4 +25,15 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::group(["prefix" => "thoughts"], function () {
     Route::get("", [Thoughts::class, "index"]);
     Route::post("", [Thoughts::class, "store"]);
+
+    Route::group(["prefix" => "{thought}"], function () {
+        // GET single thought /thoughts/{id}: show
+        Route::get("", [Thoughts::class, "show"]);
+
+        // PUT update a single thought  /thoughts/{id}: update
+        Route::put("", [Thoughts::class, "update"]);
+
+        // DELETE a single thought  /thoughts/{id}: destroy
+        Route::delete("", [Thoughts::class, "destroy"]);
+    });
 });

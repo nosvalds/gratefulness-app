@@ -44,9 +44,10 @@ class Thoughts extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Thought $thought)
     {
-        //
+        // return the thought with that ID using Route Model Binding
+        return $thought;
     }
 
     /**
@@ -56,9 +57,16 @@ class Thoughts extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ThoughtRequest $request, Thought $thought)
     {
-        //
+        // get request data
+        $data = $request->all();
+
+        // update using fill and save to DB
+        $thought->fill($data)->save();
+
+        //return updated version
+        return $thought;
     }
 
     /**
@@ -67,8 +75,12 @@ class Thoughts extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Thought $thought)
     {
-        //
+        // delete from DB
+        $thought->delete();
+
+        // return 204
+        return response(null, 204);
     }
 }
