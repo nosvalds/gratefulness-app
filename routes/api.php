@@ -22,4 +22,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 # use array syntax to point to controller
 # tidier and harder to make typos
-Route::get("/thoughts", [Thoughts::class, "index"]);
+Route::group(["prefix" => "thoughts"], function () {
+    Route::get("", [Thoughts::class, "index"]);
+    Route::post("", [Thoughts::class, "store"]);
+});

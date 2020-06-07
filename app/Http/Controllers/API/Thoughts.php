@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Thought;
+use App\Http\Requests\API\ThoughtRequest;
 
 class Thoughts extends Controller
 {
@@ -25,9 +26,16 @@ class Thoughts extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ThoughtRequest $request)
     {
-        //
+        // store a new thought
+
+        // get request data
+        $data = $request->all();
+
+        // create article with data and store in DB
+        // and return it as JSON
+        return Thought::create($data);
     }
 
     /**
