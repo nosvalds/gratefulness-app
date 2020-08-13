@@ -1,3 +1,94 @@
+# Gratefulness App API Backend
+
+## API Documentation
+
+Endpoint: `http://gratefulness.test/api/`
+
+## Authentication
+
+In order to use the service you'll need to create an account. You only need to do this once.
+
+`POST https://gratefulness.test/oauth/token`
+
+### Request
+
+```json
+{
+    "grant_type": "password",
+    "client_id": 2,
+    "client_secret": "<provided secret>",
+    "username": "<email>",
+    "password": "<password>"
+}
+```
+
+### Response
+```json
+{
+    "token_type": "Bearer",
+    "expires_in": 31536000,
+    "access_token": "<token>",
+    "refresh_token": "<token>"
+}
+```
+
+### Usage
+
+You'll need to use your token for all requests.
+
+For example, if your response was:
+
+```json
+{
+    "token_type": "Bearer",
+    "expires_in": 31536000,
+    "access_token": "<token>",
+    "refresh_token": "<token>"
+}
+```
+
+All your requests should have the following header:
+
+```
+Authorization: Bearer <access token>
+```
+
+---
+
+### Thoughts
+
+#### `GET /thoughts`
+
+Will return a list of all greatful thoughts.
+
+#### `POST /thoughts`
+
+Will create a new greatful thought.
+
+##### Request
+
+- `content`: required, grateful thought content
+- `author`: required, grateful thought author
+
+#### `GET /thoughts/<id>`
+
+Will return a thought with the given `id`
+
+#### `PUT /thoughts/<id>`
+
+Will update an entire existing thought
+
+##### Request
+
+- `content`: required, grateful thought content
+- `author`: required, grateful thought author
+
+#### `DELETE /thoughts/<id>`
+
+Will delete an existing thought
+
+# Laravel Documentation
+
 <p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
 
 <p align="center">

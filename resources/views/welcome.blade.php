@@ -61,6 +61,10 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+
+            .mr {
+                margin-right: 5px;
+            }
         </style>
     </head>
     <body>
@@ -81,18 +85,14 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    NIKI
+                    Gratefulness Journal API
                 </div>
-
+                <div class="flex-center">
+                    <h4 class="mr">Endpoint:</h4>
+                    <a href="http://gratefulness.test/api/">http://gratefulness.test/api/</a>
+                </div>
                 <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                    <a href="https://github.com/nosvalds/gratefulness-app">API Documentation</a>
                 </div>
             </div>
         </div>
